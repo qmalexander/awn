@@ -8,6 +8,6 @@ Stop-Service kubeproxy
 Stop-Service kubelet
 Get-HNSNetwork | ? Name -eq l2Bridge | Remove-HnsNetwork 
 Get-HnsPolicyList | Remove-HnsPolicyList
-Start-Service docker
+Start-Service docker -PassThru 
 Start-Service kubelet
 Start-Service kubeproxy
