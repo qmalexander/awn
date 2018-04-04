@@ -24,7 +24,6 @@ Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
 foreach (string strKey in Request.Headers.AllKeys)
   litrlHeaderDump.Text += strKey + " = " + Request.Headers[strKey] + "<br />\n";
-}
   
 foreach (string strKey in Request.ServerVariables.AllKeys)
   litrlHeaderDump2.Text += strKey + " = " + Request.ServerVariables[strKey] + "<br />\n";
