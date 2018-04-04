@@ -11,6 +11,9 @@
 <div id="divHeaderDump">
 <asp:Literal ID="litrlHeaderDump" runat="server" />
 </div>
+<div id="divHeaderDump2">
+<asp:Literal ID="litrlHeaderDump2" runat="server" />
+</div>
 </form>
 </body>
 </html>
@@ -20,6 +23,10 @@ void Page_Load(object sender, EventArgs e)
 Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
 foreach (string strKey in Request.Headers.AllKeys)
-litrlHeaderDump.Text += strKey + " = " + Request.Headers[strKey] + "<br />\n";
+  litrlHeaderDump.Text += strKey + " = " + Request.Headers[strKey] + "<br />\n";
+}
+  
+foreach (string strKey in Request.ServerVariables.AllKeys)
+  litrlHeaderDump2.Text += strKey + " = " + Request.ServerVariables[strKey] + "<br />\n";
 }
 </script>
