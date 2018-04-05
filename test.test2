@@ -7,7 +7,7 @@
                <Service priority="10">
                        <Type>http://specs.openid.net/auth/2.0/server</Type>
                        <Type>http://openid.net/extensions/sreg/1.1</Type>
-                       <URI>http://smokemultitenantk8s.teleopticloud.com/TeleoptiWFM/Web/SSO/OpenId/Provider</URI>
+                       <URI>https://smokemultitenantk8s.teleopticloud.com/TeleoptiWFM/Web/SSO/OpenId/Provider</URI>
                </Service>
        </XRD>
 </xrds:XRDS>
