@@ -16,8 +16,8 @@ if(Get-HotFix | Where-Object HotFixID -Match "KB4089848"){
 }
 else {
     Write-Host 'Installing KB4089848'
-   # Invoke-WebRequest http://download.windowsupdate.com/d/msdownload/update/software/updt/2018/03/windows10.0-kb4089848-x64_db7c5aad31c520c6983a937c3d53170e84372b11.msu -Out c:\kb4089848.msu
-   # wusa.exe c:\kb4089848.msu /quiet /forcerestart
+    Invoke-WebRequest http://download.windowsupdate.com/d/msdownload/update/software/updt/2018/03/windows10.0-kb4089848-x64_db7c5aad31c520c6983a937c3d53170e84372b11.msu -Out c:\kb4089848.msu
+    wusa.exe c:\kb4089848.msu /quiet /forcerestart
 }
 
 
