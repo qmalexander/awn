@@ -6,7 +6,7 @@ if(Get-ScheduledTask "TeleoptiFix" -EA SilentlyContinue)
 }
 else{
     Write-Host 'Register TeleoptiFix'
-    $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
+    $trigger = New-JobTrigger -AtStartup -RandomDelay 00:02:00
     Register-ScheduledJob -Trigger $trigger -FilePath $currentFile -Name TeleoptiFix    
 }
 
