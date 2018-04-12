@@ -13,6 +13,10 @@ else{
 if(Get-HotFix | Where-Object HotFixID -Match "KB4089848"){
     Write-Host 'Found KB4089848'
 
+    if(Test-Path "c:\kb4089848.msu"){
+        Remove-Item "c:\kb4089848.msu"
+    }
+
     $path = "C:\k\"
 
     if(!(test-path $path)){
