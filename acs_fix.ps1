@@ -12,6 +12,13 @@ else{
 
 if(Get-HotFix | Where-Object HotFixID -Match "KB4089848"){
     Write-Host 'Found KB4089848'
+
+    $path = "C:\k\"
+
+    if(!(test-path $path)){
+        New-Item -ItemType Directory -Path $path
+    }
+
     $testPath = Test-Path C:\k\hns.psm1 -PathType Leaf;
     if($testPath  -eq $false){
         Start-BitsTransfer -Source https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/windows/hns.psm1 -Destination C:\k\hns.psm1
@@ -25,7 +32,7 @@ if(Get-HotFix | Where-Object HotFixID -Match "KB4089848"){
     Start-Service docker
     Start-Service kubelet
     Start-Service kubeproxy
-    }
+}
 else {
     Write-Host 'Installing KB4089848'
     Invoke-WebRequest http://download.windowsupdate.com/d/msdownload/update/software/updt/2018/03/windows10.0-kb4089848-x64_db7c5aad31c520c6983a937c3d53170e84372b11.msu -Out c:\kb4089848.msu
