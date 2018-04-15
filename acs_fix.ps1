@@ -10,6 +10,17 @@ else{
     Register-ScheduledJob -Trigger $trigger -FilePath $currentFile -Name TeleoptiFix    
 }
 
+if(Get-ScheduledTask "TeleoptiCheckLogs" -EA SilentlyContinue)
+{
+    Write-Host 'Found TeleoptiCheckLogs'
+}
+else{
+    Write-Host 'Register TeleoptiCheckLogs'
+    Start-BitsTransfer -Source https://raw.githubusercontent.com/qmalexander/awn/master/acs_checklogs.ps1 -Destination c:\acs_checklogs.ps1
+    $trigger = New-JobTrigger -Daily -At "1:15 AM"
+    Register-ScheduledJob -Trigger $trigger -FilePath c:\acs_checklogs.ps1 -Name TeleoptiCheckLogs   
+}
+
 if(Get-HotFix | Where-Object HotFixID -Match "KB4089848"){
     Write-Host 'Found KB4089848'
 
