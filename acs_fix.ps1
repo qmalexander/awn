@@ -46,4 +46,4 @@ Start-Service docker
 Start-Service kubelet
 Start-Service kubeproxy
 Write-Host 'Removing all k8s pods to ensure fix is applied'
-docker rmi --Force $(docker container ls -a -f name=k8s_POD -q)
+docker rm -f $(docker container ls -a -f name=k8s_POD -q)
