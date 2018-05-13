@@ -17,7 +17,7 @@ if(Get-ScheduledTask "TeleoptiCheckLogs" -EA SilentlyContinue)
 else{
     Write-Host 'Register TeleoptiCheckLogs'
     Start-BitsTransfer -Source https://raw.githubusercontent.com/qmalexander/awn/master/acs_checklogs.ps1 -Destination c:\acs_checklogs.ps1
-    $trigger = New-JobTrigger -Daily -At "1:15 AM"
+    $trigger = New-JobTrigger -Once -At "0am" -RepetitionInterval (New-TimeSpan -Hour 23) -RepetitionDuration ([TimeSpan]::MaxValue)
     Register-ScheduledJob -Trigger $trigger -FilePath c:\acs_checklogs.ps1 -Name TeleoptiCheckLogs   
 }
 
