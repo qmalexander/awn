@@ -6,6 +6,7 @@ IS_CONTAINER: <%:Environment.GetEnvironmentVariable("IS_CONTAINER", EnvironmentV
                 Environment.GetEnvironmentVariable("IS_CONTAINER", EnvironmentVariableTarget.User) ??
                 Environment.GetEnvironmentVariable("IS_CONTAINER", EnvironmentVariableTarget.Process) ??
                 "Not found"  %>
+  <br />
 URL: <%:Environment.GetEnvironmentVariable("URL", EnvironmentVariableTarget.Machine) ??
                 Environment.GetEnvironmentVariable("URL", EnvironmentVariableTarget.User) ??
                 Environment.GetEnvironmentVariable("URL", EnvironmentVariableTarget.Process) ??
