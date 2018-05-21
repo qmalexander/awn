@@ -1,3 +1,4 @@
+<%@ Page Language="C#" AutoEventWireup="true"%>
 <html>
 <head>/head>
 <body>
